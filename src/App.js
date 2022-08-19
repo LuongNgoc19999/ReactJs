@@ -30,12 +30,12 @@ function App() {
         if(index > 0){
           setIndex(index-1)
         }
-        console.log('onKeyDown')
+        console.log('onKeyUp')
       }else if (e.keyCode === 40){
         if(index < suggestions.length-1){
           setIndex(index+1)
         }
-        console.log('onKeyUp')
+        console.log('onKeyDown')
       }else if(e.keyCode === 13){
         setSuggestHandler(suggestions[index].name, suggestions[index].country)
         console.log('onKeyEnter')
