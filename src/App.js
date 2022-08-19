@@ -18,7 +18,10 @@ function App() {
       matches = cities.filter((city) => {
         return city.name.toLowerCase().startsWith(text.toLowerCase());
       });
-      topten = matches.slice(0, 20);
+      topten = matches.slice(0, 10);
+    }
+    if(index >= topten.length){
+      setIndex(0)
     }
     console.log('topten', topten)
     setSuggestions(topten)
@@ -51,10 +54,10 @@ function App() {
       onChange={e => onChangeHandler(e.target.value)} value={text}/>
       {suggestions && suggestions.map((suggestion, i) =>
         <div className='row justify-content-md-center'
-          style={{heigit:'50px'}}
+          style={{height:'50px', marginTop:'1px', paddingLeft:'20px', paddingRight:'20px'}}
           onClick={()=> setSuggestHandler(suggestion.name, suggestion.country)}>
-           <div className='col-md-6' key={i}  style={index === i ? {backgroundColor:'#AAA', marginTop:'1px', heigit:'50px'} :
-            {backgroundColor:'#DDD', marginTop:'1px', heigit:'50px'}} >{suggestion.name}</div>
+           <div className='col-md-6' key={i}  style={index === i ? {backgroundColor:'#AAA', height:'50px', textAlign:'left'} :
+            {backgroundColor:'#DDD', height:'50px', textAlign:'left'}} >{suggestion.name}</div>
            </div>
       )}
     </div>
